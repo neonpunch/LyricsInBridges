@@ -4,17 +4,17 @@
 #include "SLelement.h"
 #include "ColorGrid.h"
 #include <sstream>
-
+using namespace std;
 using namespace bridges;
 
 //Tokenize a string into individual word, removing punctuation at the
 //end of words
-std::vector<std::string> lyrics_tokenize(const std::string& lyrics) {
-  std::vector<std::string> ret;
+vector<string> lyrics_tokenize(const string& lyrics) {
+  vector<string> ret;
 
-  std::stringstream ss (lyrics);
+  stringstream ss (lyrics);
 
-  std::string line;
+  string line;
 
   //For each line
   while (getline(ss, line, '\n')) {
@@ -22,16 +22,16 @@ std::vector<std::string> lyrics_tokenize(const std::string& lyrics) {
     if (line[0] == '[')
       continue;
 
-    std::stringstream ssline (line);
+    stringstream ssline (line);
     //For all words
     while (ssline) {
-      std::string word;
+      string word;
       ssline >> word;
       if (ssline) {
 
         //remove punctuation at the end of word
         while (word.length() > 0
-               && std::ispunct(word[word.length() - 1])) {
+               && ispunct(word[word.length() - 1])) {
           word.pop_back();
         }
         ret.push_back(word);
