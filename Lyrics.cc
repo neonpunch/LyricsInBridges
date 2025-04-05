@@ -45,11 +45,12 @@ vector<string> lyrics_tokenize(const string& lyrics) {
 int main() {
 
   //create the Bridges object, set credentials
-  Bridges bridges(107, "USER_NAME", "API_KEY");
+  Bridges bridges(1, "USER_NAME", "API_KEY");
 
   bridges.setTitle("Song Grid");
   bridges.setDescription("Artist: Taylor Swift, Song: Delicate");
-
+	
+  // (Note: I will work on this part below;-KD)
   /* TODO:
    * Grab a song from the bridges server and get its lyrics
    * use the data source method - getSong()
@@ -63,6 +64,10 @@ int main() {
    * You may also specify a default color if you wish, if not
    * it defaults to white
    */
+  // ANSWER:
+  getSong(lyrics);
+  
+  Bridges ColorGrid;
 
 
   // input your own RGBA values if you wish
