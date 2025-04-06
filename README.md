@@ -1,5 +1,5 @@
 
-**LyricsInBridges**
+**"LyricsInBridges"**
 
 This program will visualize song lyrics into a piece of artwork via 
 coupling similar words into clusters and painting them to the screen
