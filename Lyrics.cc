@@ -45,12 +45,13 @@ vector<string> lyrics_tokenize(const string& lyrics) {
 int main() {
 
   //create the Bridges object, set credentials
-  Bridges bridges(1, "USER_NAME", "API_KEY");
+  Bridges bridges(1001, "neonpunch", "1574857604435");
 
   bridges.setTitle("Song Grid");
   bridges.setDescription("Artist: Taylor Swift, Song: Delicate");
 	
-  // (Note: I will work on this part below;-KD)
+  // THE TODO BELOW IS KENWAR'S RESPONSIBILITY
+
   /* TODO:
    * Grab a song from the bridges server and get its lyrics
    * use the data source method - getSong()
@@ -72,6 +73,8 @@ int main() {
 
   // input your own RGBA values if you wish
   Color matchColor (0, 0, 0, 255);
+
+  //THE TODO BELOW IS MILO'S RESPONSIBILITY
 
   /* TODO:
    * Iterate over the lyrics, checking to see if there are matching terms
