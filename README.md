@@ -25,8 +25,8 @@ it defaults to white.
 **THE BELOW PORTION IN LYRICS.CC IS MILO'S RESPONSIBILITY**
 ### /-------------------------------------------------------/
 
-Iterate over the lyrics, checking to see if there are matching terms
-if so, set that coordinate to a color representing a match.
+Iterate over the lyrics, checking to see if there are matching terms.
+If so, set that coordinate to a color representing a match.
 
 Each row and colum will represent an individual word in the lyrics,
 meaning your main diagonal of your matrix should be completely filled in
