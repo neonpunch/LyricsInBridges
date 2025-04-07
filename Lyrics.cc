@@ -65,10 +65,13 @@ int main() {
 	 * You may also specify a default color if you wish, if not
 	 * it defaults to white
 	 */
-	// ANSWER:
-	getSong(lyrics);
+	// ANSWER:-KD
+	DataSource ds;
+	Song s = ds.getSong("God is Really Real", "AJR");
 
-	Bridges ColorGrid;
+	auto words = lyrics_tokenize(s.getLyrics());
+
+	ColorGrid grid(10, 10);
 
 
 	// input your own RGBA values if you wish
