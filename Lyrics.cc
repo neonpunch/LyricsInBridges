@@ -71,7 +71,7 @@ int main() {
 
 	auto words = lyrics_tokenize(s.getLyrics());
 
-	ColorGrid grid(10, 10);
+	ColorGrid grid(words, words);
 
 
 	// input your own RGBA values if you wish
