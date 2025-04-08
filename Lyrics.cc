@@ -47,7 +47,7 @@ int main() {
 	//create the Bridges object, set credentials
 	Bridges bridges(1001, "neonpunch", "1574857604435");
 
-	bridges.setTitle("Song Grid");
+	bridges.setTitle("Lyrics in Bridges");
 	bridges.setDescription("Artist: AJR, Song: God is Really Real");
 
 	// THE TODO BELOW IS KENWAR'S RESPONSIBILITY
@@ -73,7 +73,6 @@ int main() {
 
 	ColorGrid grid(words, words);
 
-
 	// input your own RGBA values if you wish
 	Color matchColor (0, 0, 0, 255);
 
@@ -88,16 +87,16 @@ int main() {
 	 * as that represents each word compared against itself.
 	 */
 
-	for (int i = 0; i < wordArray.size(); ++i) {
-		for (int j = 0; j < wordArray.size(); ++j) {
-			if (wordArray.at(i) == wordArray.at(j)) {
-				grid.setColor(i, j, matchColor);
-				grid.setColor(j, i, matchColor);
+	for (int i = 0; i < words.size(); ++i) {
+		for (int j = 0; j < words.size(); ++j) {
+			if (words.at(i) == words.at(j)) {
+				grid.set(i, j, matchColor);
+				grid.set(j, i, matchColor);
 			}
 		}
 	}
 	// replace YourGridHere with your ColorGrid object and uncomment the line below
-	//bridges::setDataStructure(&YourGridHere);
+	bridges::setDataStructure(&grid);
 	// visualize the grid
 	bridges.visualize();
 
