@@ -71,7 +71,7 @@ int main() {
 
 	auto words = lyrics_tokenize(s.getLyrics());
 
-	ColorGrid grid(words, words);
+	ColorGrid grid(words.size(), words.size());
 
 	// input your own RGBA values if you wish
 	Color matchColor (0, 0, 0, 255);
@@ -87,16 +87,16 @@ int main() {
 	 * as that represents each word compared against itself.
 	 */
 
-	for (int i = 0; i < words.size(); ++i) {
-		for (int j = 0; j < words.size(); ++j) {
+	for (size_t i = 0; i < words.size(); ++i) {
+		for (size_t j = 0; j < words.size(); ++j) {
 			if (words.at(i) == words.at(j)) {
-				grid.set(i, j, matchColor);
-				grid.set(j, i, matchColor);
+				grid.set(i, j, Color(255, 0, 0));
+				grid.set(j, i, Color(255, 0, 0));
 			}
 		}
 	}
 	// replace YourGridHere with your ColorGrid object and uncomment the line below
-	bridges::setDataStructure(&grid);
+	bridges.setDataStructure(&grid);
 	// visualize the grid
 	bridges.visualize();
 
