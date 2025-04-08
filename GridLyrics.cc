@@ -48,7 +48,7 @@ int main() {
 	Bridges bridges(1, "neonpunch", "1574857604435");
 
 	bridges.setTitle("Lyrics in Bridges");
-	bridges.setDescription("Artist: AJR, Song: God is Really Real");
+	bridges.setDescription("Artist: Jeff Rosenstock, Song: Festival Song");
 
 	// THE TODO BELOW IS KENWAR'S RESPONSIBILITY
 
