@@ -69,9 +69,11 @@ int main() {
 	DataSource ds;
 	Song s = ds.getSong("God is Really Real", "AJR");
 
-	auto words = lyrics_tokenize(s.getLyrics());
+	auto words = s.getLyrics();
 
-	ColorGrid grid(words.size(), words.size());
+	vector<string> wordArray = lyrics_tokenize(words);
+
+	ColorGrid grid(wordArray.size(), wordArray.size());
 
 	// input your own RGBA values if you wish
 	Color matchColor (0, 0, 0, 255);
@@ -87,11 +89,11 @@ int main() {
 	 * as that represents each word compared against itself.
 	 */
 
-	for (size_t i = 0; i < words.size(); ++i) {
-		for (size_t j = 0; j < words.size(); ++j) {
-			if (words.at(i) == words.at(j)) {
-				grid.set(i, j, Color(255, 0, 0));
-				grid.set(j, i, Color(255, 0, 0));
+	for (size_t i = 0; i < wordArray.size(); ++i) {
+		for (size_t j = 0; j < wordArray.size(); ++j) {
+			if (wordArray.at(i) == wordArray.at(j)) {
+				grid.set(i, j, matchColor);
+				grid.set(j, i, matchColor);
 			}
 		}
 	}
