@@ -45,63 +45,33 @@ vector<string> lyrics_tokenize(const string& lyrics) {
 int main() {
 
 	//create the Bridges object, set credentials
-	Bridges bridges(1, "neonpunch", "1574857604435");
+	Bridges bridges(3, "neonpunch", "1574857604435");
 
 	bridges.setTitle("Lyrics in Bridges");
-	bridges.setDescription("Artist: Jeff Rosenstock, Song: Festival Song");
-
-	// THE TODO BELOW IS KENWAR'S RESPONSIBILITY
-
-	/* TODO:
-	 * Grab a song from the bridges server and get its lyrics
-	 * use the data source method - getSong()
-	 *
-	 * Upon doing so, call the lyrics tokenize function, passing the lyrics
-	 * to remove any punctuation or tags in the lyrics, returning
-	 * an array of single cleaned up terms
-	 *
-	 * After that, create a new Bridges ColorGrid object, passing
-	 * in the word count of the lyrics in as the dimensions.
-	 * You may also specify a default color if you wish, if not
-	 * it defaults to white
-	 */
-	// ANSWER:-KD
+	bridges.setDescription("Artist: Lil Nas X, Song: VOID");
+	
 	DataSource ds;
-	Song s = ds.getSong("Festival Song", "Jeff Rosenstock");
+	Song s = ds.getSong("VOID", "Lil Nas X");
 	cout << "Song Title: " << s.getSongTitle() << endl;
 	cout << "Artist: " << s.getArtist() << endl;
 
-	s.setLyrics("It feels completely ridiculous That I'm a willing participant Gazing at the purples and pinks In the shadow of a bank-sponsored skyline Unite against the establishment! (While drones transmit the images To a server farm in the valley For a culture that'll eat its own insides) Oh, they wouldn't be your friend if you weren't worth something. They wouldn't be your friend if you weren't worth something They wouldn't be your friend if it wasn't worth it If you didn't have something they could take... ... a long look at the billboards That swallow the air so you can't ignore 'em And glamorize department store crust-punk-chic 'Cause Satan's trending up and it's fashion week But this is not a movement It's just careful entertainment For an easy demographic In our sweatshop denim jackets And we'll wonder what just happened When the world becomes Manhattan Where the banks steal the apartments Just to render them abandoned Oh, they wouldn't be your friend if you weren't worth something They wouldn't be your friend if you weren't worth something They wouldn't be your friend if it wasn't worth it If you didn't have something they could take We're not stupid people, but this financial depression Has got everyone believing all that we can do is nothing 'Cause we organize through avenues they lace with advertisements So the ones we try to rage against are still lining their pockets Oh, they wouldn't be your friend if you weren't worth something They wouldn't be your friend if you weren't worth something They wouldn't be your friend if it wasn't worth it If you didn't have something they could take");
+	s.setLyrics("Hello, friend from the road I wanted to write a note To let you know that, all in all, it ain't all what it seems I feel like I've hit a low One I've never hit before Lately, I been feelin' small as the salt in the sea Oh, it's so much to do in so little of time I feel like I fell a little behind Hold up, hold up, hold up It seems so out of reach to place upon the bay Whoever thought I'd get there anyway? Hold up, hold up, hold up I find it hard to get Way too hard to live Tell me what you know Now before I go Oh Blue, I wrote for you To say I'm gonna run away from home Oh, Blue, I love you too But today I'm gonna run away from home Oh, I weep through the night Can't find a love who loves me the same Or as much as you do Hold up, hold up, hold up Oh, I reach out my hand, open the door See, I'm more than what everyone tells me Hold up, hold up, hold up See, I'm gettin' tired of the way I been livin' I'd rather die than to live with these feelings Stuck in this world where there's so much to prove Every win gives you more room to lose It's too many ups and downs on the ride I spent inordinate 'mounts of time Trapped in the lonely, loner life Lookin' for lover on the night I find it hard to get Way too hard to live Tell me what you know Now before I go Oh Blue, I wrote for you To say I'm gonna run away from home Oh, Blue, I love you too But today I'm gonna run away from home Away from home Oh, oh Today, I'm gonna run away Today, I'm gonna run away");
 
 	//cout << "Lyrics Retrieved: " << s.getLyrics() << endl;
-
 	auto words = s.getLyrics();
-	
 	//cout << "Lyrics: " << words << endl;
 	vector<string> wordArray = lyrics_tokenize(words);
 	cout << "Total words: " << wordArray.size() << endl;
 
-	ColorGrid grid(wordArray.size(), wordArray.size(), Color(255, 105, 200));
-
+	ColorGrid grid(wordArray.size(), wordArray.size(), Color(0, 0, 0));
 	// input your own RGBA values if you wish
 	Color matchColor (0, 0, 0, 255);
-
-	//THE TODO BELOW IS MILO'S RESPONSIBILITY
-
-	/* TODO:
-	 * Iterate over the lyrics, checking to see if there are matching terms
-	 * if so, set that coordinate to a color representing a match.
-	 *
-	 * Each row and colum will represent an individual word in the lyrics,
-	 * meaning your main diagonal of your matrix should be completely filled in
-	 * as that represents each word compared against itself.
-	 */
-
+	
 	for (size_t i = 0; i < wordArray.size(); i++) {
 		for (size_t j = i + 1; j < wordArray.size(); j++) {
 			if (wordArray.at(i) != wordArray.at(j)) {
-				grid.set(j, i, Color(0, 0, 0));
-				grid.set(i, j, Color(0, 0, 0));
+				grid.set(j, i, Color(255, 90, 160));
+				grid.set(i, j, Color(255, 90, 160));
 			}
 		}
 	}
